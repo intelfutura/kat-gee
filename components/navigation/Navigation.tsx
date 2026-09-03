@@ -52,7 +52,7 @@ export function Navigation() {
   }, [pathname]);
 
   return (
-    <header className={`${styles.bar} ${compact ? styles.compact : ""} ${onDark ? styles.onDark : ""}`}>
+    <header className={`${styles.bar} ${compact ? styles.compact : ""} ${onDark && !open ? styles.onDark : ""}`}>
       <Link href="/" className={styles.wordmark} aria-label="Kat Gee, home">
         Kat Gee
       </Link>

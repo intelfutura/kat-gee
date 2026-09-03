@@ -35,7 +35,9 @@
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.22em;
+  position: relative;
   text-transform: uppercase;
+  z-index: 2;
 }
 
 .desktop {
@@ -73,7 +75,9 @@
   gap: 0.38rem;
   height: 2.75rem;
   justify-content: center;
+  position: relative;
   width: 2.75rem;
+  z-index: 2;
 }
 
 .line {
@@ -109,6 +113,7 @@
   position: fixed;
   transition: opacity 380ms var(--ease);
   visibility: hidden;
+  z-index: 1;
 }
 
 .panelOpen {
