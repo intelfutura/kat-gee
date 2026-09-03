@@ -4,12 +4,18 @@ import type { InquiryPayload } from "./types";
 
 /**
  * Persistence is intentionally swappable.
- * v1 writes structured JSON lines locally.
- * Later adapters can post to a CRM, queue, or qualification service
- * without changing the form or the route contract.
+ * Locally, v1 writes JSON lines.
+ * On Vercel the filesystem is ephemeral, so the console logger is always on
+ * and a webhook (Formspree, Make, Zapier, Resend) is the durable path.
  */
 export interface InquiryStore {
   save(inquiry: InquiryPayload): Promise<void>;
+}
+
+export class ConsoleInquiryStore implements InquiryStore {
+  async save(inquiry: InquiryPayload) {
+    console.info("[inquiry]", JSON.stringify(inquiry));
+  }
 }
 
 export class FileInquiryStore implements InquiryStore {
@@ -46,11 +52,19 @@ export class WebhookInquiryStore implements InquiryStore {
   }
 }
 
+const onVercel = Boolean(process.env.VERCEL);
+
 export function createInquiryStore(): InquiryStore {
-  const stores: InquiryStore[] = [new FileInquiryStore()];
+  const stores: InquiryStore[] = [new ConsoleInquiryStore()];
+
+  if (!onVercel) {
+    stores.push(new FileInquiryStore());
+  }
+
   const webhook = process.env.INQUIRY_WEBHOOK_URL;
   if (webhook) {
     stores.push(new WebhookInquiryStore(webhook));
   }
+
   return new CompositeInquiryStore(stores);
 }

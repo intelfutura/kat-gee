@@ -17,7 +17,17 @@ export async function POST(request: Request) {
     path: "/start",
   });
 
-  await createInquiryStore().save(inquiry);
+  try {
+    await createInquiryStore().save(inquiry);
+  } catch (error) {
+    console.error("[inquiry] persist failed", error);
+    if (process.env.INQUIRY_WEBHOOK_URL) {
+      return NextResponse.json(
+        { ok: false, errors: { form: "The inquiry could not be delivered. Please try again." } },
+        { status: 502 },
+      );
+    }
+  }
 
   return NextResponse.json({ ok: true, id: inquiry.id });
 }
