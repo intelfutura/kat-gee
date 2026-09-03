@@ -1,0 +1,56 @@
+.button {
+  align-items: center;
+  display: inline-flex;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  min-height: 2.75rem;
+  padding: 0.85rem 0;
+  position: relative;
+  text-transform: uppercase;
+  transition: color 240ms var(--ease);
+}
+
+.button span {
+  position: relative;
+}
+
+.button::after {
+  background: currentColor;
+  bottom: 0.55rem;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(1);
+  transform-origin: left center;
+  transition: transform 420ms var(--ease);
+  width: 100%;
+}
+
+.button:hover::after {
+  transform: scaleX(0.28);
+}
+
+.primary {
+  color: inherit;
+}
+
+.ghost {
+  color: inherit;
+  opacity: 0.72;
+}
+
+.ghost:hover {
+  opacity: 1;
+}
+
+.invert {
+  color: var(--paper);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}

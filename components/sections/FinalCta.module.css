@@ -1,0 +1,22 @@
+.section {
+  min-height: 78svh;
+  padding: var(--s-7) 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: flex-end;
+  min-height: 58svh;
+}
+
+.title {
+  font-size: clamp(3.4rem, 9vw, 7.4rem);
+  max-width: 12ch;
+}
+
+.support {
+  font-size: 1.15rem;
+  max-width: 26rem;
+}

@@ -1,0 +1,22 @@
+.root {
+  opacity: 0;
+  transform: translate3d(0, 1.4rem, 0);
+  transition:
+    opacity var(--duration) var(--ease),
+    transform calc(var(--duration) + 120ms) var(--ease);
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .visible {
+    opacity: 1;
+    transform: none;
+  }
+}

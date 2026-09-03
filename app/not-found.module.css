@@ -1,0 +1,16 @@
+.page {
+  min-height: 80svh;
+  padding: calc(var(--nav-h) + 4rem) 0 var(--s-7);
+}
+
+.title {
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
+  margin: 1rem 0 1.2rem;
+  max-width: 12ch;
+}
+
+.lede {
+  color: var(--stone);
+  margin-bottom: 2rem;
+  max-width: 28rem;
+}

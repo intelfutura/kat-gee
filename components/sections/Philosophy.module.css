@@ -1,0 +1,42 @@
+.section {
+  min-height: 92svh;
+  padding: var(--s-7) 0;
+}
+
+.inner {
+  display: grid;
+  gap: var(--s-5);
+  min-height: 70svh;
+}
+
+.index {
+  opacity: 0.55;
+}
+
+.title {
+  font-size: clamp(4.6rem, 14vw, 11rem);
+  max-width: 14ch;
+}
+
+.support {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.45;
+  margin-left: 0;
+  max-width: 22rem;
+}
+
+@media (min-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr 22rem;
+    grid-template-rows: auto 1fr;
+  }
+
+  .index {
+    grid-column: 1 / -1;
+  }
+
+  .support {
+    align-self: flex-end;
+    margin-bottom: 0.6rem;
+  }
+}

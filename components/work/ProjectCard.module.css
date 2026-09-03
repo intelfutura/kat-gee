@@ -1,0 +1,60 @@
+.card {
+  min-width: 0;
+}
+
+.link {
+  display: grid;
+  gap: 1rem;
+}
+
+.media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform 900ms var(--ease);
+}
+
+.link:hover .media img {
+  transform: scale(1.035);
+}
+
+.meta {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.name {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.full .media {
+  aspect-ratio: 16 / 8.4;
+}
+
+.split .media {
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 860px) {
+  .split .link {
+    align-items: flex-end;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 2rem;
+  }
+
+  .flip .link {
+    grid-template-columns: 0.8fr 1.4fr;
+  }
+
+  .flip .media {
+    order: 2;
+  }
+
+  .split .name {
+    font-size: clamp(2.4rem, 3.6vw, 3.8rem);
+  }
+}
