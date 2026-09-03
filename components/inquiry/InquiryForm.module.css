@@ -1,0 +1,113 @@
+.form,
+.done {
+  display: grid;
+  gap: 1.8rem;
+  max-width: 42rem;
+}
+
+.doneTitle {
+  font-size: clamp(3rem, 7vw, 5rem);
+}
+
+.progress {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.bar {
+  background: var(--rule);
+  height: 1px;
+}
+
+.bar span {
+  background: var(--ink);
+  display: block;
+  height: 1px;
+  transition: width 400ms var(--ease);
+}
+
+.step {
+  border: 0;
+  margin: 0;
+  min-height: 16rem;
+  padding: 0;
+}
+
+.question {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  margin-bottom: 1.4rem;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.option {
+  border: 1px solid var(--rule-strong);
+  min-height: 2.75rem;
+  padding: 0.7rem 0.95rem;
+  transition:
+    background 220ms var(--ease),
+    color 220ms var(--ease);
+}
+
+.optionOn,
+.option:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field span {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.field textarea,
+.field input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 0.85rem 0;
+  resize: vertical;
+  width: 100%;
+}
+
+.field textarea:focus,
+.field input:focus {
+  border-bottom-color: var(--ink);
+  outline: none;
+}
+
+.contact {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.error {
+  color: #7a2e24;
+  font-size: 0.875rem;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 700px) {
+  .contact {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact .field:last-child {
+    grid-column: 1 / -1;
+  }
+}

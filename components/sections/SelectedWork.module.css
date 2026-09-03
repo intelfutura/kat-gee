@@ -1,0 +1,38 @@
+.section {
+  padding: var(--s-7) 0 var(--s-6);
+}
+
+.head {
+  display: grid;
+  gap: 1.4rem;
+  margin-bottom: var(--s-5);
+}
+
+.title {
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  margin-bottom: 1rem;
+}
+
+.note {
+  max-width: 28rem;
+}
+
+.full {
+  margin-bottom: var(--s-5);
+}
+
+.rest {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.more {
+  margin-top: var(--s-5);
+}
+
+@media (min-width: 860px) {
+  .head {
+    align-items: flex-end;
+    grid-template-columns: 0.7fr 1fr;
+  }
+}

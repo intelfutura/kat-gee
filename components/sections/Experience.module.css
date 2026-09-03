@@ -1,0 +1,56 @@
+.section {
+  padding: 0 0 var(--s-7);
+}
+
+.title {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  margin: 1rem 0 var(--s-4);
+  max-width: 12ch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 0.4rem 2rem;
+  padding: 1.25rem 0;
+}
+
+.list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.year {
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  padding-top: 0.2rem;
+}
+
+.list h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.place {
+  color: var(--stone);
+  font-weight: 400;
+  margin-left: 0.7rem;
+}
+
+.list p {
+  color: var(--stone);
+  max-width: 36rem;
+}
+
+@media (min-width: 760px) {
+  .list li {
+    grid-template-columns: 8.5rem 1fr;
+  }
+}

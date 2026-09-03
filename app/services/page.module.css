@@ -1,0 +1,13 @@
+.header {
+  padding: calc(var(--nav-h) + 2.4rem) 0 var(--s-5);
+}
+
+.title {
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  margin: 1rem 0 1.2rem;
+  max-width: 13ch;
+}
+
+.lede {
+  max-width: 34rem;
+}
